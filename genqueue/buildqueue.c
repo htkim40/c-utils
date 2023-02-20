@@ -2,13 +2,12 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <conio.h>
+#include <string.h>
 #include "genqueue.c"
 
 #define poolSize 5
 Genqueue_QueueType_t queueType; 
 Genqueue_StaticQueue_t queue;
-
-
 
 int main()
 {	
@@ -18,11 +17,7 @@ int main()
 	uint32_t queuePool[poolSize];
 	uint32_t userInput[3u];
 	
-
-	printf("%llu\n", sizeof(queuePool));
-	printf("%llu\n", sizeof(uint32_t));
 	
-
 	if(poolSize != (sizeof(queuePool)/sizeof(uint32_t))){
 		queueType = eGENQUEUE_INVALID_TYPE;
 	
@@ -36,7 +31,6 @@ int main()
 		queueType = eGENQUEUE_LINEAR_TYPE;
 	}
 
-	
 	do{	
 		printf("\nSelect desired operation:");
 		printf("\n1.Insert");
@@ -62,12 +56,6 @@ int main()
 				terminate = 1;
 		}
 	} while (terminate != 1);
-	
-	// int x[5] = {5,3,4};
-	// // int x = 2;
-	// queue.pool = &x;
-	// printf ("%d\n",x[3]);
-	// printf("%d\n",*((int*)(queue.pool)+1));
-	
+
 	return 0;
 }
