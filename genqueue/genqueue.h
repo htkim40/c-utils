@@ -1,4 +1,4 @@
-/**
+/*
  * @file genqueue.h
  * @brief Contains API for generic static or linear queue.
  * @author Hong Kim
@@ -32,15 +32,16 @@ typedef struct
 int Genqueue_SQueueInit(Genqueue_StaticQueue_t* sQueue,
                         void* pool,
                         unsigned int poolSize,
-                        unsigned int elementSize);
+                        unsigned int elementSize,
+                        unsigned int maxNElements);
 
 int Genqueue_SQueueEnqueue(Genqueue_StaticQueue_t* sQueue,
                            void* elements,
-                           int nElements);
+                           unsigned int nElements);
 
 int Genqueue_SQueueDequeue(Genqueue_StaticQueue_t* sQueue,
                            void* elements,
-                           int nElements);
+                           unsigned int nElements);
 
 int Genqueue_SQueueFront(Genqueue_StaticQueue_t* sQueue,
                          void* element);
@@ -49,3 +50,5 @@ int Genqueue_SQueueBack(Genqueue_StaticQueue_t* sQueue,
                         void* element);
 
 int Genqueue_SQueueDeinit(Genqueue_StaticQueue_t* sQueue);
+
+int displayQueue(Genqueue_StaticQueue_t* sQueue, unsigned int maxNElements);
